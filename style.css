@@ -1,0 +1,581 @@
+/* ================= متغیرها و تنظیمات پایه ================= */
+:root {
+    --primary-color: #c2ff33; /* رنگ سبز/زرد لیمویی */
+    --text-dark: #1a1a1a;
+    --text-gray: #757575;
+    --bg-light: #f5f5f5;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================= هدر ================= */
+.site-header {
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--white);
+}
+
+.header-top-bar {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav ul li a {
+    font-weight: 500;
+    color: var(--text-gray);
+    font-size: 15px;
+    transition: color 0.3s;
+}
+
+.main-nav ul li a:hover, 
+.main-nav ul li a.active {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.center-logo .logo-img {
+    height: 50px; /* ارتفاع مناسب برای لوگو */
+    object-fit: contain;
+}
+
+.left-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-btn {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+.login-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submit-ad-btn {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.submit-ad-btn:hover {
+    opacity: 0.8;
+}
+
+/* استایل بنر هدر */
+.header-banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #000; /* پس‌زمینه مشکی برای هماهنگی با بنر */
+    overflow: hidden;
+}
+
+.banner-img {
+    width: 100%;
+    max-height: 250px; /* حداکثر ارتفاع برای جلوگیری از بزرگ شدن بیش از حد */
+    object-fit: cover; /* پر کردن فضا بدون کشیدگی */
+    display: block;
+}
+
+/* ================= Breadcrumb ================= */
+.breadcrumb-container {
+    padding: 20px 0;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-gray);
+}
+
+.breadcrumb li i {
+    font-size: 10px;
+}
+
+/* ================= چیدمان اصلی ================= */
+.main-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+/* ================= سایدبار فیلترها ================= */
+.sidebar-filters {
+    width: 300px;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fafafa;
+}
+
+.filter-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.clear-filters {
+    font-size: 12px;
+    color: #0056b3;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-section {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filter-section:last-child {
+    border-bottom: none;
+}
+
+.filter-section h4 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* دسته‌بندی تصویری */
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    text-align: center;
+}
+
+.cat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.cat-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #f5f5f5;
+    padding: 5px;
+}
+
+.cat-item span {
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+.show-all-cats {
+    grid-column: span 3;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* فیلدهای ورودی */
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-row select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    background-color: #f9f9f9;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+}
+
+/* سوییچ (Toggle) */
+.filter-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.filter-title-row h4 {
+    margin-bottom: 0;
+}
+
+.zero-text {
+    font-size: 13px;
+    color: var(--text-gray);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--text-dark);
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+/* دکمه‌های گروهی */
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.button-group button.active {
+    background-color: var(--text-dark);
+    color: var(--white);
+    border-color: var(--text-dark);
+}
+
+/* ================= لیست آگهی‌ها ================= */
+.ads-list {
+    flex-grow: 1;
+}
+
+.ads-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+.ads-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sort-dropdown select {
+    border: none;
+    background: #f5f5f5;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* کارت آگهی */
+.ad-card {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s;
+}
+
+.ad-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.ad-image {
+    position: relative;
+    width: 220px;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.ad-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-count {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.badge-top {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--primary-color);
+    color: var(--text-dark);
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.badge-store {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 248, 225, 0.9);
+    color: #b78103;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.ad-details {
+    padding: 0 20px;
+    flex-grow: 1;
+}
+
+.ad-title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.ad-subtitle {
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+}
+
+.ad-location-time {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+.ad-location-time span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ad-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    min-width: 150px;
+}
+
+.price-value {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.price-installment {
+    font-size: 12px;
+    color: var(--text-gray);
+    margin-top: 5px;
+}
+
+/* دکمه شناور موبایل */
+.floating-add-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 90%;
+}
+
+.floating-add-btn button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(194, 255, 51, 0.4);
+    cursor: pointer;
+}
+
+/* ================= ریسپانسیو ================= */
+@media (max-width: 992px) {
+    .main-layout {
+        flex-direction: column;
+    }
+    
+    .sidebar-filters {
+        width: 100%;
+    }
+
+    .categories {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        padding: 10px 15px;
+    }
+    
+    .main-nav {
+        display: none; 
+    }
+
+    .login-btn span {
+        display: none; 
+    }
+
+    .ad-card {
+        flex-direction: column;
+        position: relative;
+    }
+
+    .ad-image {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 15px;
+    }
+
+    .ad-details {
+        padding: 0;
+    }
+
+    .ad-price {
+        align-items: flex-start;
+        margin-top: 15px;
+    }
+
+    .floating-add-btn {
+        display: block;
+    }
+
+    .categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
